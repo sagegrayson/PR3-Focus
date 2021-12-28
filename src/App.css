@@ -1,8 +1,10 @@
-/* --light: hsl(32, 100%, 97%);
+:root{
+--light: hsl(32, 100%, 97%);
 --gold: hsl(32, 100%, 80%);
 --red: hsl(4, 85%, 32%);
 --blue: hsl(208, 49%, 20%);
---dark: hsl(240, 7%, 8%); */
+--dark: hsl(240, 7%, 8%);
+}
 
 .App {
   text-align: center;
