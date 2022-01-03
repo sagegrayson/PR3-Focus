@@ -1,8 +1,8 @@
 # Focus [![License](https://img.shields.io/badge/License-Apache_2.0-blue.svg)](https://opensource.org/licenses/Apache-2.0)
 
-## Description
-
 ![screenshot](https://via.placeholder.com/300)
+
+## Description
 
 Focus is a chat app designed to keep your attention on the conversation.
 
