@@ -26,15 +26,19 @@ function App() {
           </ConversationsProvider>
         </ContactsProvider>
       </SocketProvider>
-      <Router>
-        <Route>
-          <Signup onIdSubmit={setId} exact path="/Signup" />
-        </Route>
-      </Router>
     </ApolloProvider>
   );
 
-  return id ? dashBoard : <Login onIdSubmit={setId} />;
+  const login = (
+    <Router>
+      <Route>
+        <Login onIdSubmit={setId} exact path="/" />
+        <Signup onIdSubmit={setId} exact path="/Signup" />
+      </Route>
+    </Router>
+  );
+
+  return id ? dashBoard : login;
 }
 
 export default App;
