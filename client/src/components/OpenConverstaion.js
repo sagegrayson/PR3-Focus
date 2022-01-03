@@ -22,13 +22,7 @@ export default function OpenConverstaion() {
     setText(" ");
   }
 
-  
-  const handleKeyPress = (e) => {
-    if(e.key === 13){
-      e.preventDefault();
-      document.getElementById("submitBtn").click();
-    }
-  }
+
 
   return (
     <div className="black-gold d-flex flex-column flex-grow-1">
@@ -66,21 +60,20 @@ export default function OpenConverstaion() {
           })}
         </div>
       </div>
-      <Form onSubmit={handleSubmit, handleKeyPress}>
+      <Form onSubmit={handleSubmit}>
         <Form.Group className="m-2">
           <InputGroup>
             <Form.Control
               className="black-gold-input-box"
               id='black-gold-input-box'
               placeholder='Type Message Here'
-              onKeyPress={this.handleKeyPress}
               as="textarea"
               required
               value={text}
               onChange={(e) => setText(e.target.value)}
             />
 
-            <Button id="submitBtn" type="submit">Send</Button>
+            <Button id="submitBtn" as='button' type="submit">Send</Button>
           </InputGroup>
         </Form.Group>
       </Form>
