@@ -22,10 +22,18 @@ export default function OpenConverstaion() {
     setText(" ");
   }
 
+  
+  const handleKeyPress = (e) => {
+    if(e.key === 13){
+      e.preventDefault();
+      document.getElementById("submitBtn").click();
+    }
+  }
+
   return (
-    <div className="d-flex flex-column flex-grow-1">
+    <div className="black-gold d-flex flex-column flex-grow-1">
       <div className="flex-grow-1 overflow-auto">
-        <div className="d-flex flex-column align-items-start justify-content-end px-3">
+        <div className=" d-flex flex-column align-items-start justify-content-end px-3">
           {selectedConversation.messages.map((message, index) => {
             const lastMessage =
               selectedConversation.messages.length - 1 === index;
@@ -41,13 +49,13 @@ export default function OpenConverstaion() {
               >
                 <div
                   className={`rounded px-2 py-1 ${
-                    message.fromMe ? "bg-primary text-white" : "border"
+                    message.fromMe ? "black-gold message-box" : "border"
                   }`}
                 >
                   {message.text}
                 </div>
                 <div
-                  className={`text-muted small ${
+                  className={`text-muted small-text ${
                     message.fromMe ? "align-self-end" : " "
                   }`}
                 >
@@ -58,21 +66,28 @@ export default function OpenConverstaion() {
           })}
         </div>
       </div>
-      <Form onSubmit={handleSubmit}>
+      <Form onSubmit={handleSubmit, handleKeyPress}>
         <Form.Group className="m-2">
           <InputGroup>
             <Form.Control
+              className="black-gold-input-box"
+              id='black-gold-input-box'
+              placeholder='Type Message Here'
+              onKeyPress={this.handleKeyPress}
               as="textarea"
               required
               value={text}
               onChange={(e) => setText(e.target.value)}
-              style={{ height: "75px", resize: "none" }}
             />
 
-            <Button type="submit">Send</Button>
+            <Button id="submitBtn" type="submit">Send</Button>
           </InputGroup>
         </Form.Group>
       </Form>
     </div>
   );
-}
+
+};
+
+
+
