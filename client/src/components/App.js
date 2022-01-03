@@ -1,3 +1,4 @@
+import '../assets/css/style.scss';
 import React from "react";
 import { ApolloClient, InMemoryCache, ApolloProvider } from "@apollo/client";
 import { BrowserRouter as Router, Route } from "react-router-dom";
