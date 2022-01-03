@@ -2,6 +2,7 @@
   "name": "whatsappclone",
   "version": "0.1.0",
   "private": true,
+  "proxy": "http://localhost:3001",
   "dependencies": {
     "@apollo/client": "^3.5.6",
     "@testing-library/jest-dom": "^5.16.1",
@@ -16,7 +17,8 @@
     "socket.io-client": "^4.4.0",
     "uuid": "^8.3.2",
     "web-vitals": "^2.1.2",
-    "jwt-decode": "^3.1.2"
+    "jwt-decode": "^3.1.2",
+    "graphql": "^15.4.0"
   },
   "scripts": {
     "start": "react-scripts start",

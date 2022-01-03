@@ -1,7 +1,7 @@
 import React, { useState } from "react";
 import { v4 as uuidV4 } from "uuid";
 import { useMutation } from "@apollo/client";
-import { ADD_PROFILE } from "../utils/mutations";
+import { ADD_USER } from "../utils/mutations";
 import { Container, Form, Button } from "react-bootstrap";
 import Auth from "../utils/auth";
 export default function Signup({ onIdSubmit }) {
@@ -10,7 +10,7 @@ export default function Signup({ onIdSubmit }) {
     password: "",
     PhoneId: "",
   });
-  const [addProfile, { error, data }] = useMutation(ADD_PROFILE);
+  const [addUser, { error, data }] = useMutation(ADD_USER);
 
   const handleChange = (event) => {
     const { name, value } = event.target;
@@ -24,7 +24,8 @@ export default function Signup({ onIdSubmit }) {
   // submit form
   const handleSubmit = async (event) => {
     event.preventDefault();
-    const id = onIdSubmit(uuidV4());
+    const id = uuidV4();
+
     setFormState({
       ...formState,
       PhoneId: id,
@@ -32,11 +33,12 @@ export default function Signup({ onIdSubmit }) {
     console.log(formState);
 
     try {
-      const { data } = await addProfile({
+      const { data } = await addUser({
         variables: { ...formState },
       });
+      onIdSubmit(id);
 
-      Auth.login(data.addProfile.token);
+      Auth.login(data.createUser.token);
     } catch (e) {
       console.error(e);
     }
