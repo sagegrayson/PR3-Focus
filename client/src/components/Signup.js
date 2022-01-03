@@ -8,7 +8,7 @@ export default function Signup({ onIdSubmit }) {
   const [formState, setFormState] = useState({
     email: "",
     password: "",
-    id: "",
+    PhoneId: "",
   });
   const [addProfile, { error, data }] = useMutation(ADD_PROFILE);
 
@@ -27,7 +27,7 @@ export default function Signup({ onIdSubmit }) {
     const id = onIdSubmit(uuidV4());
     setFormState({
       ...formState,
-      id: id,
+      PhoneId: id,
     });
     console.log(formState);
 

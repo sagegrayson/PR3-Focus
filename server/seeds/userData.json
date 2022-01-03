@@ -1,0 +1,17 @@
+[
+  {
+    "PhoneId": "randomid1",
+    "email": "Anthony@gmail.com",
+    "password": "somepassword"
+  },
+  {
+    "PhoneId": "randomid2",
+    "email": "Ian@gmail.com",
+    "password": "somepassword11"
+  },
+  {
+    "PhoneId": "randomid3",
+    "email": "Sage@gmail.com",
+    "password": "somepassword22"
+  }
+]

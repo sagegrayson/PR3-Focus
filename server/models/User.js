@@ -3,7 +3,7 @@ const mongoose = require("mongoose");
 const Schema = mongoose.Schema;
 
 const UserSchema = new Schema({
-  _id: {
+  PhoneId: {
     type: String,
     unique: true,
   },
