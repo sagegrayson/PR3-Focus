@@ -1,3 +1,27 @@
+const express = require("express");
+const mongoose = require("mongoose");
+
+const PORT = process.env.PORT || 3001;
+
+const app = express();
+
+app.use(express.urlencoded({ extended: true }));
+app.use(express.json());
+
+mongoose.connect(
+  process.env.MONGODB_URI || "mongodb://localhost/<ENTER-DB-HERE>",
+  {
+    useNewUrlParser: true,
+    useUnifiedTopology: true,
+    useCreateIndex: true,
+    useFindAndModify: false,
+  }
+);
+
+// routes
+app.use(require("./routes"));
+
+// ==== JIMMY SOCKET.IO WORK ==== //
 const io = require("socket.io")(5000, {
   cors: {
     origin: ["http://localhost:3000"],
@@ -19,4 +43,9 @@ io.on("connection", (socket) => {
       });
     });
   });
+});
+
+// PORT
+app.listen(PORT, () => {
+  console.log(`App running on port ${PORT}: http://localhost:3001`);
 });
