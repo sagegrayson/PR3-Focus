@@ -1,13 +1,16 @@
-import React, { useRef, useState } from "react";
-import { Container, Form, Button } from "react-bootstrap";
-import { useHistory } from "react-router-dom";
-import { useMutation } from "@apollo/client";
-import { LOGIN_USER } from "../utils/mutations";
-import Auth from "../utils/auth";
+import React, { useState } from "react";
 import { v4 as uuidV4 } from "uuid";
-export default function Login({ onIdSubmit }) {
-  const [formState, setFormState] = useState({ email: "", password: "" });
-  const [login, { error, data }] = useMutation(LOGIN_USER);
+import { useMutation } from "@apollo/client";
+import { ADD_PROFILE } from "../utils/mutations";
+import { Container, Form, Button } from "react-bootstrap";
+import Auth from "../utils/auth";
+export default function Signup({ onIdSubmit }) {
+  const [formState, setFormState] = useState({
+    email: "",
+    password: "",
+    id: "",
+  });
+  const [addProfile, { error, data }] = useMutation(ADD_PROFILE);
 
   const handleChange = (event) => {
     const { name, value } = event.target;
@@ -18,32 +21,25 @@ export default function Login({ onIdSubmit }) {
     });
   };
 
-  const idRef = useRef();
-
+  // submit form
   const handleSubmit = async (event) => {
     event.preventDefault();
-    onIdSubmit(idRef.current.value);
+    const id = onIdSubmit(uuidV4());
+    setFormState({
+      ...formState,
+      id: id,
+    });
     console.log(formState);
+
     try {
-      const { data } = await login({
+      const { data } = await addProfile({
         variables: { ...formState },
       });
 
-      Auth.login(data.login.token);
+      Auth.login(data.addProfile.token);
     } catch (e) {
       console.error(e);
     }
-
-    // clear form values
-    setFormState({
-      email: "",
-      password: "",
-    });
-  };
-
-  let history = useHistory();
-  const redirect = () => {
-    history.push("/Signup");
   };
 
   return (
@@ -53,18 +49,19 @@ export default function Login({ onIdSubmit }) {
     >
       <Form onSubmit={handleSubmit} className="w-100">
         <Form.Group>
-          <Form.Label>Login</Form.Label>
+          <Form.Label>Enter Email</Form.Label>
           {/* <Form.Control type="text" ref={idRef} required /> */}
           <Form.Control
-            type="text"
+            type="email"
             name="email"
             placeholder="email"
             value={formState.email}
             onChange={handleChange}
             required
           />
+          <Form.Label>Enter Password</Form.Label>
           <Form.Control
-            type="text"
+            type="password"
             name="password"
             value={formState.password}
             placeholder="password"
@@ -72,9 +69,8 @@ export default function Login({ onIdSubmit }) {
             required
           />
         </Form.Group>
-        <a href="">Create New Account</a>
-        <Button variant="secondary" onClick={redirect} className="ml-2">
-          Create a new Account
+        <Button type="submit" className="mr-2">
+          Create account
         </Button>
       </Form>
     </Container>
