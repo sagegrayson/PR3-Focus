@@ -1,0 +1,46 @@
+:root{
+    --light: hsl(32, 100%, 97%);
+    --gold: hsl(32, 100%, 80%);
+    --red: hsl(4, 85%, 32%);
+    --blue: hsl(208, 49%, 20%);
+    --dark: hsl(240, 7%, 8%);
+    font-family: 'Roboto Mono', monospace;
+}
+
+.black-gold {
+    color: var(--gold);
+    background-color: var(--dark);
+}
+
+textarea#black-gold-input-box {
+    color: var(--gold);
+    background-color: var(--dark);
+    border: 1px solid var(--gold);
+    border-radius: 2em;
+    padding: .5%;
+    width: 98%;
+    height: 83%;
+
+
+}
+
+.black-gold-sidebar {
+    background-color: var(--dark);
+    border-right: 1px solid var(--gold);
+}
+
+.message-box{
+    font-size: 18px;
+    font-family: 'Roboto Mono';
+    color: var(--light);
+    border: 1px solid black;
+}
+
+.small-text {
+    font-size: 10px;
+}
+
+.btn-gold {
+    background-color: var(--gold);
+    color: var(--gold);
+}
