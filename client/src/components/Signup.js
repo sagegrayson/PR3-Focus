@@ -38,36 +38,43 @@ export default function Signup({ onIdSubmit }) {
   };
 
   return (
+    <Container  id='landingPage'>
+        <div class="focus">
+            <span>FOCUS</span>
+          </div>
     <Container
       className="align-items-center d-flex"
-      style={{ height: "100vh" }}
+      id = 'loginForm'
     >
       <Form onSubmit={handleSubmit} className="w-100">
         <Form.Group>
-          <Form.Label>Enter Email</Form.Label>
+          <Form.Label  id='emailDisplay' className="black-gold">Email</Form.Label>
           {/* <Form.Control type="text" ref={idRef} required /> */}
           <Form.Control
             type="email"
             name="email"
-            placeholder="email"
+            id='email'
+            placeholder="Type your Email"
             value={formState.email}
             onChange={handleChange}
             required
           />
-          <Form.Label>Enter Password</Form.Label>
+          <Form.Label id='passwordDisplay' className="black-gold">Password</Form.Label>
           <Form.Control
             type="password"
             name="password"
+            id='password'
             value={formState.password}
-            placeholder="password"
+            placeholder="Type your Password"
             onChange={handleChange}
             required
           />
         </Form.Group>
-        <Button type="submit" className="mr-2">
+        <Button type="submit" className="mr-2" id='createAcct'>
           Create account
         </Button>
       </Form>
+    </Container>
     </Container>
   );
 }

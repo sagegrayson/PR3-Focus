@@ -1,5 +1,3 @@
-
-import '../assets/css/style.scss';
 import React from "react";
 import { ApolloClient, InMemoryCache, ApolloProvider } from "@apollo/client";
 import { BrowserRouter as Router, Route } from "react-router-dom";
@@ -10,6 +8,7 @@ import { ContactsProvider } from "../context/ContactsProvider";
 import { ConversationsProvider } from "../context/ConversationsProvider";
 import { SocketProvider } from "../context/SocketProvider";
 import Signup from "./Signup";
+import '../assets/css/style.scss';
 
 const client = new ApolloClient({
   uri: "/graphql",

@@ -1,5 +1,5 @@
 import React, { useRef, useState } from "react";
-import { Container, Form, Button } from "react-bootstrap";
+import { Container, Form, Button} from "react-bootstrap";
 import { useHistory, Link } from "react-router-dom";
 import { useMutation, useQuery } from "@apollo/client";
 import { LOGIN_USER } from "../utils/mutations";
@@ -46,39 +46,50 @@ export default function Login({ onIdSubmit }) {
   };
 
   return (
+  
+    <Container  id='landingPage'>
+        <div class="focus">
+            <span>FOCUS</span>
+          </div>
     <Container
       className="align-items-center d-flex"
-      style={{ height: "100vh" }}
+      id = 'loginForm'
     >
       <Form onSubmit={handleSubmit} className="w-100">
         <Form.Group>
-          <Form.Label>Login</Form.Label>
+          <Form.Label id = 'login'>Login</Form.Label>
           {/* <Form.Control type="text" ref={idRef} required /> */}
+          <p id='emailDisplay'> Email </p>
           <Form.Control
             type="text"
             name="email"
-            placeholder="email"
+            id='email'
+            placeholder="Type your Email"
             value={formState.email}
             onChange={handleChange}
             required
           />
+          <p id='passwordDisplay'> Password </p>
           <Form.Control
             type="password"
             name="password"
+            id='password'
             value={formState.password}
-            placeholder="password"
+            placeholder="Type your Password"
             onChange={handleChange}
             required
           />
         </Form.Group>
-        <Button variant="Primary" type="submit">
+        <Button variant="Primary" type="submit" id='login'>
           Login
         </Button>
 
-        <Link to="/Signup" className="btn ml-2">
+        <Link to="/Signup" className="btn ml-2" id='signUp'>
           Create a new Account
         </Link>
       </Form>
     </Container>
+    </Container>
+  
   );
-}
+  }

@@ -5,10 +5,15 @@
     --blue: hsl(208, 49%, 20%);
     --dark: hsl(240, 7%, 8%);
     --robo: 'Roboto Mono', monospace;
+    --salsa: 'Salsa', cursive;
 }
 
 * {
     font-family: var(--robo);
+}
+
+body {
+background-color: var(--dark) !important;
 }
 
 #root{
@@ -16,12 +21,13 @@
     background-color: var(--dark);
 }
 
+
 .black-gold, .d-flex {
-    color: var(--gold);
-    background-color: var(--dark);
+    color: var(--gold) !important;
+    background-color: var(--dark) !important;
 }
 
-textarea#black-gold-input-box {
+textarea#black-gold-input-box, #email, #password {
     color: var(--light);
     background-color: var(--dark);
     font-family: var(--robo);
@@ -33,6 +39,7 @@ textarea#black-gold-input-box {
     box-shadow: none;
 
 }
+
 
 .btn{
     background-color: var(--dark) !important;
@@ -48,7 +55,7 @@ textarea#black-gold-input-box {
 
 #sidebar-list {
     background-color: var(--dark);
-    border-bottom: var(--gold) !important;
+    border-bottom: var(--gold) ;
 }
 
 .message-box{
@@ -73,10 +80,27 @@ button#newConvoBtn {
     font-weight: bold;
 }
 
+button#login, #signUp {
+    box-shadow: none;
+    border: none;
+    font-weight: bold;
+    display: flex;
+    flex-direction: row;
+    flex-wrap: wrap;
+    justify-content: center;
+    
+}
+
+button#login{
+    padding-top: 2%;
+    padding-bottom: 4%;
+}
+
+
 #tabs {
-    background-color: var(--dark) !important;
-    color: var(--gold) !important;
-    font-family: var(--robo) !important;
+    background-color: var(--dark) ;
+    color: var(--gold) ;
+    font-family: var(--robo) ;
     font-size: .8em;
     box-shadow: none;
     border: none;
@@ -85,41 +109,132 @@ button#newConvoBtn {
 
 #id{
     color: var(--red);
-    border-top: solid 1px var(--gold) !important;
+    border-top: solid 1px var(--gold) ;
 }
 .nav-link {
-    background-color: var(--dark) !important;
-    color: var(--gold) !important;
-    font-family: var(--robo) !important;
-    border: none !important;
+    background-color: var(--dark) ;
+    color: var(--gold) ;
+    font-family: var(--robo) ;
+    border: none;
 }
 
 .active {
-    background-color: var(--gold) !important;
-    color: var(--dark) !important;
-    font-family: var(--robo) !important;
-    border: none !important;
+    background-color: var(--gold);
+    color: var(--dark);
+    font-family: var(--robo);
+    border: none;
 }
 .modal-body, .modal-content{
-    background-color: var(--blue) !important;
-    border: none !important;
+    background-color: var(--blue);
+    border: none ;
     border-radius: 0em;
     font-size: 1.3em;
     text-align: center;
 }
 
 .modal-header{
-    background-color: var(--blue) !important;
-    border: none !important;
+    background-color: var(--blue);
+    border: none;
     border-radius: 0em;
     font-size: 1.3em;
     color: var(--gold);
 }
 
+
 .form-label{
-    background-color: var(--blue) !important;
-    border: none !important;
+    background-color: var(--blue);
+    border: none;
     border-radius: 0em;
     font-size: 1.3em;
     color: var(--red);
 }
+
+#login, #createAcct {
+    color: var(--gold);
+    background-color: var(--dark);
+    display: flex;
+    justify-content: center;
+    padding-top: 6%;
+}
+
+#landingPage {
+    color: var(--gold);
+    background-color: var(--dark);
+    display: flex;
+    flex-direction: row;
+    flex-wrap: wrap;
+    justify-content: center;
+    font-family: var(--salsa) !important;
+}
+
+#loginForm {
+padding-top: 10%;
+}
+
+#emailDisplay, #passwordDisplay{
+    margin-bottom: 0%;
+    margin-top: 1em;
+    font-size: .7em;
+}
+
+.focus span {
+    color: var(--gold);
+    font-family: var(--salsa) !important;
+    font-size: 700%;
+    padding-top: 10%;
+    padding-bottom: 10%;
+    display: flex;
+    // animation: move 3s ease-in-out infinite;
+}
+
+@keyframes cursor-blink {
+    0% {
+      opacity: 0;
+    }
+}
+
+.focus span::after {
+    content: "";
+    width: 5px;
+    height: 1em;
+    background: var(--gold);
+    padding-top: 40%;
+    display: flex;
+    animation: cursor-blink 1.5s steps(2) infinite;
+}
+
+// @keyframes move {
+//     // 0% {
+//     //   transform: translate(-30%, 0);
+//     // }
+//     50% {
+//       text-shadow: 0 25px 50px var(--gold);
+//     }
+//     // 100% {
+//     //   transform: translate(30%, 0);
+//     // }
+//   }
+  
+//   .focus span:nth-child(2) {
+//     animation-delay: 0.5s;
+//   }
+  
+//   .focus span:nth-child(3) {
+//     animation-delay: 1s;
+//   }
+  
+//   .focus span:nth-child(4) {
+//     animation-delay: 1.5s;
+//   }
+  
+//   .focus span:nth-child(5) {
+//     animation-delay: 2s;
+//   }
+  
+//   .focus span:nth-child(6) {
+//     animation-delay: 2.5s;
+//   }
+  
+//   .focus span:nth-child(7) {
+//     animation-delay: 3s;
+//   }
