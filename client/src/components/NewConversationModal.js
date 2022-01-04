@@ -25,6 +25,7 @@ export default function NewConversationModal({ closeModal }) {
       }
     });
   }
+
   return (
     <>
       <Modal.Header closeButton>Create Conversation</Modal.Header>
