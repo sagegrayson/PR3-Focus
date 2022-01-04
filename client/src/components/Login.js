@@ -1,6 +1,6 @@
 import React, { useRef, useState } from "react";
 import { Container, Form, Button } from "react-bootstrap";
-import { useHistory } from "react-router-dom";
+import { useHistory, Link } from "react-router-dom";
 import { useMutation } from "@apollo/client";
 import { LOGIN_USER } from "../utils/mutations";
 import Auth from "../utils/auth";
@@ -22,15 +22,18 @@ export default function Login({ onIdSubmit }) {
 
   const handleSubmit = async (event) => {
     event.preventDefault();
-    onIdSubmit(idRef.current.value);
     console.log(formState);
+
     try {
       const { data } = await login({
         variables: { ...formState },
       });
 
+      onIdSubmit(data.login.user.PhoneId);
+
       Auth.login(data.login.token);
     } catch (e) {
+      alert("Account not found");
       console.error(e);
     }
 
@@ -39,11 +42,6 @@ export default function Login({ onIdSubmit }) {
       email: "",
       password: "",
     });
-  };
-
-  let history = useHistory();
-  const redirect = () => {
-    history.push("/Signup");
   };
 
   return (
@@ -64,7 +62,7 @@ export default function Login({ onIdSubmit }) {
             required
           />
           <Form.Control
-            type="text"
+            type="password"
             name="password"
             value={formState.password}
             placeholder="password"
@@ -72,10 +70,13 @@ export default function Login({ onIdSubmit }) {
             required
           />
         </Form.Group>
-        <a href="">Create New Account</a>
-        <Button variant="secondary" onClick={redirect} className="ml-2">
-          Create a new Account
+        <Button variant="Primary" type="submit">
+          Login
         </Button>
+
+        <Link to="/Signup" className="btn ml-2">
+          Create a new Account
+        </Link>
       </Form>
     </Container>
   );

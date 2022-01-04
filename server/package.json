@@ -11,12 +11,17 @@
   "author": "",
   "license": "ISC",
   "dependencies": {
+    "apollo-server-express": "^2.19.0",
     "bcrypt": "^5.0.1",
     "express": "^4.17.2",
-    "mongoose": "^6.1.4",
-    "socket.io": "^4.4.0"
+    "mongoose": "^5.11.6",
+    "socket.io": "^4.4.0",
+    "graphql": "^15.4.0",
+    "jsonwebtoken": "^8.5.1",
+    "bcrypt": "^5.0.0"
   },
   "devDependencies": {
-    "nodemon": "^2.0.15"
+    "nodemon": "^2.0.15",
+    "concurrently": "^5.1.0"
   }
 }

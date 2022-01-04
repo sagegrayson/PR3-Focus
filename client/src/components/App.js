@@ -1,3 +1,4 @@
+
 import '../assets/css/style.scss';
 import React from "react";
 import { ApolloClient, InMemoryCache, ApolloProvider } from "@apollo/client";
@@ -17,6 +18,14 @@ const client = new ApolloClient({
 
 function App() {
   const [id, setId] = useLocalStorage("id");
+  const token = localStorage.getItem("id_token");
+  let logged;
+
+  if (token === null) {
+    logged = false;
+  } else {
+    logged = true;
+  }
 
   const dashBoard = (
     <ApolloProvider client={client}>
@@ -30,16 +39,20 @@ function App() {
     </ApolloProvider>
   );
 
-  const login = (
-    <Router>
-      <Route>
-        <Login onIdSubmit={setId} exact path="/" />
-        <Signup onIdSubmit={setId} exact path="/Signup" />
-      </Route>
-    </Router>
+  const loginPage = (
+    <ApolloProvider client={client}>
+      <Router>
+        <Route exact path="/">
+          <Login onIdSubmit={setId} />
+        </Route>
+        <Route exact path="/Signup">
+          <Signup onIdSubmit={setId} />
+        </Route>
+      </Router>
+    </ApolloProvider>
   );
 
-  return id ? dashBoard : login;
+  return logged ? dashBoard : loginPage;
 }
 
 export default App;
