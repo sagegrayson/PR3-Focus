@@ -9,11 +9,17 @@ export function useSocket() {
 
 export function SocketProvider({ id, children }) {
   const [socket, setSocket] = useState();
+  const url = window.location.href;
 
   useEffect(() => {
-    const newSocket = io("http://localhost:5000", {
+    const newSocket = io(`${url}`, {
       query: { id },
-      cors: { origin: ["http://localhost:3000"] },
+      cors: {
+        origin: [
+          process.env.DOMAIN_FULL + ":" + process.env.PORT,
+          "http://localhost:3001",
+        ],
+      },
     });
     setSocket(newSocket);
 
