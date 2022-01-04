@@ -1,0 +1,42 @@
+:root{
+--light: hsl(32, 100%, 97%);
+--gold: hsl(32, 100%, 80%);
+--red: hsl(4, 85%, 32%);
+--blue: hsl(208, 49%, 20%);
+--dark: hsl(240, 7%, 8%);
+}
+
+.App {
+  text-align: center;
+}
+
+.App-logo {
+  height: 40vmin;
+  pointer-events: none;
+}
+
+
+.App-header, .loginForm {
+  background-color: #131316;
+  min-height: 100vh;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  font-size: calc(10px + 2vmin);
+  color: white;
+  margin: 0;
+  padding: 0;
+}
+
+.boxed {
+  border: 1px solid green ;
+  margin-right: 78%;
+  width:20%;
+  height:850px;
+}
+
+.App-link {
+  color: #000000;
+}
+

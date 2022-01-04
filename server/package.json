@@ -12,6 +12,7 @@
   "license": "ISC",
   "dependencies": {
     "apollo-server-express": "^2.19.0",
+    "bcrypt": "^5.0.1",
     "express": "^4.17.2",
     "mongoose": "^5.11.6",
     "socket.io": "^4.4.0",
