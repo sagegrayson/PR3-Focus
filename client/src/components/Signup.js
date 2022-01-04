@@ -24,11 +24,11 @@ export default function Signup({ onIdSubmit }) {
   // submit form
   const handleSubmit = async (event) => {
     event.preventDefault();
-    const id = uuidV4();
+    //const Phoneid = uuidV4();
 
     setFormState({
       ...formState,
-      PhoneId: id,
+      PhoneId: uuidV4(),
     });
     console.log(formState);
 
@@ -36,10 +36,11 @@ export default function Signup({ onIdSubmit }) {
       const { data } = await addUser({
         variables: { ...formState },
       });
-      onIdSubmit(id);
+      onIdSubmit(data.createUser.user.PhoneId);
 
       Auth.login(data.createUser.token);
     } catch (e) {
+      alert("something went wrong");
       console.error(e);
     }
   };

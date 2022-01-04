@@ -40,7 +40,7 @@ function App() {
   const loginPage = (
     <ApolloProvider client={client}>
       <Router>
-        <Route>
+        <Route exact path="/">
           <Login onIdSubmit={setId} />
         </Route>
         <Route exact path="/Signup">
