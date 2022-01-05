@@ -49,7 +49,7 @@ export default function Sidebar({ id }) {
           </Tab.Pane>
         </Tab.Content>
         <div id="id" className="p-2 border-right small">
-          Your Id: <span className="text-muted">{id}</span>
+          Your Friend Code: <span className="text-muted">{id}</span>
         </div>
 
         <Button
