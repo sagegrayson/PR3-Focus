@@ -23,13 +23,7 @@ export function ConversationsProvider({ id, children }) {
       return [...prevConversations, { recipients, messages: [] }];
     });
   }
-  function removeConversation(conversationIndex) {
-    const newConversations = conversations.filter(
-      (e, index) => index !== conversationIndex
-    );
 
-    setConversations(newConversations);
-  }
   const formattedConversations = conversations.map((conversation, index) => {
     const recipients = conversation.recipients.map((recipient) => {
       const contact = contacts.find((contact) => {
@@ -100,7 +94,6 @@ export function ConversationsProvider({ id, children }) {
     sendMessage,
     selectConversationIndex: setSelectedConversationIndex,
     createConversation,
-    removeConversation,
   };
 
   return (
